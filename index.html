@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Australian Visa Services</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h1>Australian Visa Services</h1>
+          <p>Official Visa Application Portal</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#contact-section" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section fade-in">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h2>Apply for Your Australian Visa</h2>
+      <p>
+        Complete your visa application online with our secure and streamlined process.
+        Get started today and take the first step towards your Australian journey.
+      </p>
+
+      <div class="features">
+        <div class="feature-box">
+          <i class="fas fa-shield-alt feature-icon"></i>
+          <h3>Secure Process</h3>
+          <p>Your personal information is protected with bank-level security</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-clock feature-icon"></i>
+          <h3>Fast Processing</h3>
+          <p>Most applications are processed within 5-10 business days</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-check-circle feature-icon"></i>
+          <h3>Expert Support</h3>
+          <p>Get help from our visa specialists throughout the process</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section container fade-in">
+    <h2>Why Choose Australia?</h2>
+    <p>
+      Australia offers unmatched lifestyle, top-tier education, and strong job prospects. From
+      cosmopolitan cities to stunning landscapes, it's a destination known for opportunity and safety.
+    </p>
+    <ul>
+      <li>✔ World-class education and healthcare</li>
+      <li>✔ Multicultural society and friendly people</li>
+      <li>✔ High employment rate and career growth</li>
+      <li>✔ Clean, safe, and vibrant communities</li>
+    </ul>
+  </section>
+
+  <section id="apply" class="form-section container fade-in">
+    <h2>Visa Application Form</h2>
+    <form class="visa-form" id="visaForm">
+      <input type="text" placeholder="Full Name" required />
+      <input type="text" placeholder="Passport Number" required />
+      <input type="text" placeholder="Nationality" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <select required>
+        <option value="">Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="date" required />
+      <input type="text" placeholder="Purpose of Visit" required />
+      <input type="text" placeholder="Duration of Stay" required />
+      <textarea placeholder="Residential Address" rows="3" required></textarea>
+      <label class="file-upload-label">
+        Upload Passport Photo:
+        <input type="file" accept="image/*" required />
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" required /> I confirm all information provided is correct.
+      </label>
+      <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+    <div id="successMessage" class="success-message" style="display: none;">
+      ✅ Your visa application has been submitted successfully!
+    </div>
+  </section>
+
+  <section id="contact-section" class="contact-section container fade-in">
+    <h2>Contact Us</h2>
+    <div class="contact-details">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <p>Phone: <a href="tel:+61405749674">+61 405 749 674</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <p>Email: <a href="mailto:support@ozcareergurus.com">support@ozcareergurus.com</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Address: HWT Tower Level 23, 40 City Road,<br> Southbank VIC 3006, Australia</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2024 Australian Visa Services. All rights reserved.
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => observer.observe(el));
+
+    const visaForm = document.getElementById('visaForm');
+    const successMessage = document.getElementById('successMessage');
+
+    visaForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      visaForm.reset();
+      successMessage.style.display = 'block';
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
